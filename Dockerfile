@@ -1,9 +1,6 @@
 FROM node:19-bullseye-slim
-RUN apt-get update && apt-get install -y \
-mysql-server
-EXPOSE 3306
 WORKDIR /app
-COPY package*.json /app/
+COPY package*.json ./
 RUN npm install
-COPY . /app/
+COPY . .
 CMD ["npm", "start"]
